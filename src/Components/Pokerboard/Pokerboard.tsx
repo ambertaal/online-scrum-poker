@@ -40,6 +40,8 @@ const Pokerboard = () => {
     setUsers(newUsersArray);
   };
 
+  const [visible, setVisible] = React.useState(false);
+
   return (
     <div className="Pokerboard">
       <div className="container-estimates">
@@ -58,20 +60,28 @@ const Pokerboard = () => {
       <h2>Results</h2>
       <div className="results-buttons">
         <button onClick={reset}>Delete estimates</button>
-        <button>Show</button>
+        <button onClick={() => setVisible(!visible)}>
+          {visible ? "Hide" : "Show"}
+        </button>
+        {visible && (
+          <div>
+            <ul>
+              {users.map((user) => {
+                return (
+                  <User
+                    key={user.id}
+                    name={user.name}
+                    id={user.id}
+                    points={user.points}
+                  />
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        <div></div>
       </div>
-      <ul>
-        {users.map((user) => {
-          return (
-            <User
-              key={user.id}
-              name={user.name}
-              id={user.id}
-              points={user.points}
-            />
-          );
-        })}
-      </ul>
+
       <AddNameForm title="Userform" addUser={addUser} />
     </div>
   );
