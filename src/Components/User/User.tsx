@@ -5,7 +5,7 @@ type Props = {
   id: number;
   key: number;
   name: string;
-  storypoints: number;
+  points: number;
 };
 
 const User = (props: Props) => {
@@ -13,10 +13,10 @@ const User = (props: Props) => {
     <li className="User">
       <div
         className="percentage_coloring"
-        style={{ width: props.storypoints + "%" }}
+        style={{ width: props.points + "%" }}
       />
       <p>
-        {props.name} (storypoints: {props.storypoints}){" "}
+        {props.name} (Story Points: {props.points}){" "}
       </p>
     </li>
   );

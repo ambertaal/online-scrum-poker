@@ -6,22 +6,33 @@ import "./Pokerboard.css";
 type UserObj = {
   id: number;
   name: string;
-  storypoints: number;
+  points: number;
 };
 
 const Pokerboard = () => {
   const [users, setUsers] = useState<UserObj[]>([
-    { id: 1, name: "Amber", storypoints: 8 },
-    { id: 2, name: "Martin", storypoints: 5 },
-    { id: 3, name: "Luuk", storypoints: 20 },
+    { id: 1, name: "Amber", points: 8 },
+    { id: 2, name: "Martin", points: 5 },
+    { id: 3, name: "Luuk", points: 20 },
   ]);
+
+  const reset = () => {
+    setUsers(
+      users.map((user) => {
+        return {
+          ...user,
+          points: 0,
+        };
+      })
+    );
+  };
 
   const addUser = (name: string) => {
     //1. Define a new person
     const newUser = {
       id: Math.max(...users.map((user: any) => user.id)) + 1,
       name: name,
-      storypoints: 0,
+      points: 0,
     };
     //2. Add the new person to the array
     const newUsersArray = [...users, newUser];
@@ -46,7 +57,7 @@ const Pokerboard = () => {
       </div>
       <h2>Results</h2>
       <div className="results-buttons">
-        <button>Delete estimates</button>
+        <button onClick={reset}>Delete estimates</button>
         <button>Show</button>
       </div>
       <ul>
@@ -56,19 +67,11 @@ const Pokerboard = () => {
               key={user.id}
               name={user.name}
               id={user.id}
-              storypoints={user.storypoints}
+              points={user.points}
             />
           );
         })}
       </ul>
-      {/* <div className="result-list">
-        {users.map((user: any) => (
-          <div className="result-item" key={user.id}>
-            <h2>{user.name}</h2>
-            <p>{user.storypoints}</p>
-          </div>
-        ))}
-      </div> */}
       <AddNameForm title="Userform" addUser={addUser} />
     </div>
   );
