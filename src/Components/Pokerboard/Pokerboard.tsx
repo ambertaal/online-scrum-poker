@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import User from "../User/User";
-import AddNameForm from "../AddUserForm";
+import AddUserForm from "../AddUserForm";
 import "./Pokerboard.css";
 
 type UserObj = {
@@ -15,6 +15,8 @@ const Pokerboard = () => {
     { id: 2, name: "Martin", points: 5 },
     { id: 3, name: "Luuk", points: 20 },
   ]);
+
+  const [visible, setVisible] = useState(false);
 
   const reset = () => {
     setUsers(
@@ -40,10 +42,10 @@ const Pokerboard = () => {
     setUsers(newUsersArray);
   };
 
-  const [visible, setVisible] = React.useState(false);
-
   return (
     <div className="Pokerboard">
+      <AddUserForm title="Add user" addUser={addUser} />
+
       <div className="container-estimates">
         <h2>Submit estimate</h2>
         <button>?</button>
@@ -57,6 +59,7 @@ const Pokerboard = () => {
         <button>40</button>
         <button>100</button>
       </div>
+
       <h2>Results</h2>
       <div className="results-buttons">
         <button onClick={reset}>Delete estimates</button>
@@ -79,10 +82,16 @@ const Pokerboard = () => {
             </ul>
           </div>
         )}
+        {!visible && (
+          <div>
+            <p>
+              Estimates are hidden. <br />
+              Click 'show' to see the estimates.
+            </p>
+          </div>
+        )}
         <div></div>
       </div>
-
-      <AddNameForm title="Userform" addUser={addUser} />
     </div>
   );
 };
