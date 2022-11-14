@@ -4,18 +4,18 @@ import "./AddUserForm.css";
 
 type Props = {
   title: string;
-  addUser: (name: string) => void;
+  addUser: (name: string, points: string) => void;
 };
 
 const AddUserForm = (props: Props) => {
   const [name, setName] = useState("");
-  const [points, setPoints] = useState("?");
+  const [points, setPoints] = useState("");
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const user = { name, points };
     console.log(user);
-    props.addUser(name);
+    props.addUser(name, points);
     // setName("");
     // setPoints("");
   };
@@ -48,8 +48,9 @@ const AddUserForm = (props: Props) => {
           <option value="100">100</option>
         </select>
         <button type="submit">Add</button>
-        <p>{name}</p>
-        <p>{points}</p>
+        <p>
+          {name}, Story Points: {points}
+        </p>
       </form>
     </div>
   );

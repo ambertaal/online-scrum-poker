@@ -6,14 +6,14 @@ import "./Pokerboard.css";
 type UserObj = {
   id: number;
   name: string;
-  points: number;
+  points: string;
 };
 
 const Pokerboard = () => {
   const [users, setUsers] = useState<UserObj[]>([
-    { id: 1, name: "Amber", points: 8 },
-    { id: 2, name: "Martin", points: 5 },
-    { id: 3, name: "Luuk", points: 20 },
+    { id: 1, name: "Amber", points: "8" },
+    { id: 2, name: "Martin", points: "5" },
+    { id: 3, name: "Luuk", points: "20" },
   ]);
 
   const [visible, setVisible] = useState(false);
@@ -23,18 +23,18 @@ const Pokerboard = () => {
       users.map((user) => {
         return {
           ...user,
-          points: 0,
+          points: "-",
         };
       })
     );
   };
 
-  const addUser = (name: string) => {
+  const addUser = (name: string, points: string) => {
     //1. Define a new person
     const newUser = {
       id: Math.max(...users.map((user: any) => user.id)) + 1,
       name: name,
-      points: 0,
+      points: points,
     };
     //2. Add the new person to the array
     const newUsersArray = [...users, newUser];
