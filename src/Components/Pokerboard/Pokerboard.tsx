@@ -69,16 +69,14 @@ const Pokerboard = () => {
         {visible && (
           <div>
             <ul>
-              {users.map((user) => {
-                return (
-                  <User
-                    key={user.id}
-                    name={user.name}
-                    id={user.id}
-                    points={user.points}
-                  />
-                );
-              })}
+              {users.map((user) => (
+                <User
+                  key={user.id}
+                  name={user.name}
+                  id={user.id}
+                  points={user.points}
+                />
+              ))}
             </ul>
           </div>
         )}

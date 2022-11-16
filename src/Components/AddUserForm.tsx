@@ -13,11 +13,7 @@ const AddUserForm = (props: Props) => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const user = { name, points };
-    console.log(user);
     props.addUser(name, points);
-    // setName("");
-    // setPoints("");
   };
 
   return (
@@ -48,9 +44,6 @@ const AddUserForm = (props: Props) => {
           <option value="100">100</option>
         </select>
         <button type="submit">Add</button>
-        <p>
-          {name}, Story Points: {points}
-        </p>
       </form>
     </div>
   );
