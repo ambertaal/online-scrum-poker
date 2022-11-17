@@ -1,4 +1,4 @@
-.container-estimates {
+.container-users {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -6,24 +6,16 @@
   margin: 0px auto;
 }
 
-.results-buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 200px;
-  margin: 8px auto;
-}
-
-.result-item {
+.user-item {
   padding: 10px 16px;
   margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid #ffffff;
 }
 
-.result-item:hover {
+.user-item:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
-.result-item h2 {
+.user-item h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px;
