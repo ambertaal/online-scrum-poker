@@ -7,9 +7,9 @@ import "./Users.css";
 const Users = (props: any) => {
   return (
     <Card className="users">
-      <UserItem name={props.items[0].name} points={props.items[0].points} />
-      <UserItem name={props.items[1].name} points={props.items[1].points} />
-      <UserItem name={props.items[2].name} points={props.items[2].points} />
+      {props.items.map((user: any) => (
+        <UserItem name={user.name} points={user.points} />
+      ))}
     </Card>
   );
 };

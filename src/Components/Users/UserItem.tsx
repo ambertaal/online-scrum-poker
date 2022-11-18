@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Card from "../UI/Card";
 import "./UserItem.css";
 
 const UserItem = (props: any) => {
-  // function clickHandler() {}
-
-  console.log("UserItem evaluated by React");
-
   return (
     <Card className="user-item">
       <div className="user-item__description">

@@ -3,14 +3,17 @@ import React from "react";
 import UserForm from "./UserForm";
 import "./NewUser.css";
 
-type Props = {
-  // name: string;
-  // points: string;
+interface Props {
   onAddUser: any;
-};
+}
+
+interface EnteredUserData {
+  name: string;
+  points: string;
+}
 
 const NewUser = (props: Props) => {
-  const saveUserDataHandler = (enteredUserData: any) => {
+  const saveUserDataHandler = (enteredUserData: EnteredUserData) => {
     const userData = {
       ...enteredUserData,
       id: Math.random().toString(),

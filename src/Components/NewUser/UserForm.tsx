@@ -2,9 +2,14 @@ import React, { useState } from "react";
 
 import "./UserForm.css";
 
-type Props = {
-  onSaveUserData: (userData: any) => void;
-};
+interface userData {
+  name: string;
+  points: string;
+}
+
+interface Props {
+  onSaveUserData: (userData: userData) => void;
+}
 
 const UserForm = (props: Props) => {
   const [enteredName, setEnteredName] = useState("");
