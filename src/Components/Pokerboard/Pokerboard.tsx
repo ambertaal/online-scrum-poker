@@ -4,7 +4,7 @@ import NewUser from "../NewUser/NewUser";
 import Users from "../Users/Users";
 import "./Pokerboard.css";
 
-interface User {
+interface newUser {
   id: number;
   name: string;
   points: string;
@@ -19,9 +19,9 @@ const DUMMY_USERS = [
 const Pokerboard = () => {
   const [users, setUsers] = useState(DUMMY_USERS);
 
-  const addUserHandler = (user: User) => {
+  const addUserHandler = (newUser: newUser) => {
     setUsers((prevUsers) => {
-      return [user, ...prevUsers];
+      return [...prevUsers, newUser];
     });
   };
 

@@ -49,8 +49,8 @@ const UserForm = (props: Props) => {
         />
         <label>Story Points:</label>
         <select value={enteredPoints} onChange={pointsChangeHandler}>
-          <option value="?">?</option>
           <option value="2">2</option>
+          <option value="?">?</option>
           <option value="3">3</option>
           <option value="5">5</option>
           <option value="8">8</option>

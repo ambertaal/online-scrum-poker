@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  a {
+    color: white;
+    margin-left: 35px;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
