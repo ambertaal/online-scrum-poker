@@ -2,7 +2,6 @@ import React from "react";
 
 import UserItem from "./UserItem";
 import Card from "../UI/Card";
-import "./Users.css";
 
 const Users = (props: any) => {
   return (

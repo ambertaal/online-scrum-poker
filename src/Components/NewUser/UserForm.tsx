@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import "./UserForm.css";
-
 interface userData {
   name: string;
   points: string;

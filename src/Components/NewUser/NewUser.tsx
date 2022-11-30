@@ -1,7 +1,6 @@
 import React from "react";
 
 import UserForm from "./UserForm";
-import "./NewUser.css";
 
 interface Props {
   onAddUser: any;

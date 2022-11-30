@@ -1,5 +1,3 @@
-import "./HomePage.css";
-
 import Pokerboard from "../Components/Pokerboard/Pokerboard";
 import Title from "../Components/Title";
 
