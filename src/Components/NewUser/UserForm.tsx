@@ -34,8 +34,11 @@ const UserForm = (props: Props) => {
     setEnteredPoints("");
   };
 
+  const estimationPoints = ["?", 2, 3, 5, 8, 13, 20, 40, 100];
+
   return (
     <div className="adduser">
+      <h1 id="2">Test titel</h1>
       <form onSubmit={submitHandler}>
         <label>User name:</label>
         <input
@@ -46,18 +49,22 @@ const UserForm = (props: Props) => {
           onChange={nameChangeHandler}
         />
         <label>Story Points:</label>
-        <select value={enteredPoints} onChange={pointsChangeHandler}>
-          <option value="2">2</option>
-          <option value="?">?</option>
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="8">8</option>
-          <option value="13">13</option>
-          <option value="20">20</option>
-          <option value="40">40</option>
-          <option value="100">100</option>
-        </select>
-        <button type="submit">Add estimate</button>
+        {estimationPoints.map((point) => {
+          return (
+            <>
+              <br></br>
+              <input
+                type="radio"
+                id={`estimationPoint_${point}`}
+                name="estimationPoints"
+                value={point}
+                onChange={pointsChangeHandler}
+              />
+              <label htmlFor={`estimationPoint_${point}`}>{point}</label>
+            </>
+          );
+        })}
+        ;<button type="submit">Add estimate</button>
       </form>
     </div>
   );
